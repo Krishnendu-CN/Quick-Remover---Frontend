@@ -237,7 +237,7 @@ const handleTabChange = (event, newValue) => {
                     />
                   </Button>
                 </Box>
-                 <Typography variant="h6" color="text.secondary" gutterBottom>
+                 <Typography variant="contained" color="text.secondary" gutterBottom>
                     Images not working? Try these sample images. (Due to Railway's RAM limitations, we are using NumPy instead of RemBG, which may not work properly for background removal.)
                   </Typography>
 
