@@ -129,8 +129,8 @@ const handleTabChange = (event, newValue) => {
     }
   ];
   const defaultImages = [
-  { src: "../demo-1.jpg", label: "Animals" },
-  { src: "../demo-2.png", label: "Products" }
+  { src: "../person-1.png", label: "Animals" },
+  { src: "../person-2.png", label: "Products" }
 ];
 
 
