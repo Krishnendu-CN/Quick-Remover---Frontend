@@ -125,7 +125,21 @@ export default function App() {
       const url = URL.createObjectURL(res.data);
       setResult(url);
     } catch (err) {
-      alert(err.response?.data?.detail || err.message);
+      if (err.response && err.response.data instanceof Blob) {
+      // Convert blob to text → then try JSON
+      const text = await err.response.data.text();
+      try {
+        const json = JSON.parse(text);
+        console.error("Backend error:", json.detail);
+        alert(json.detail); // or setError(json.detail)
+      } catch {
+        console.error("Non-JSON error:", text);
+        alert(text);
+      }
+    } else {
+      console.error("Axios error:", err.message);
+      alert(err.message);
+    }
     } finally {
       setLoading(false);
     }
@@ -289,6 +303,9 @@ export default function App() {
                   Upload File
                   
                 </Button>
+                <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '14px',p:2 }} >
+                    <strong>Max File Size : 300kb</strong> 
+                  </Typography>
               </Box>
             )}
 

@@ -240,6 +240,9 @@ const handleTabChange = (event, newValue) => {
                   </Button>
                 </Box>
                 <Box sx={{ mt: 4 }}>
+                  <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '14px' }} >
+                    <strong>Max File Size : 300kb</strong> 
+                  </Typography>
                  <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '16px' }} >
                     <strong>Images not working? Try these sample images.</strong> (Due to  <strong>Railway's</strong> RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
                   </Typography>
