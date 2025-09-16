@@ -196,7 +196,7 @@ const handleTabChange = (event, newValue) => {
 
           {/* Right Section (Upload) */}
           <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-            <Card sx={{ textAlign: "center", borderRadius: 11, boxShadow: 3 }}>
+            <Card sx={{ textAlign: "center", borderRadius: 0, boxShadow: 0 }}>
               <CardContent>
                 <Box
                   onDragOver={(e) => {
@@ -206,9 +206,11 @@ const handleTabChange = (event, newValue) => {
                   onDragLeave={() => setDragOver(false)}
                   onDrop={handleDrop}
                   sx={{
+                    textAlign: "center",
+                    boxShadow: 3,
                     borderRadius: 11,
-                    pl: 20,
-                    pr: 20,
+                    pl: 15,
+                    pr: 15,
                     pt: 10,
                     pb: 5,
                     cursor: "pointer",
@@ -237,6 +239,7 @@ const handleTabChange = (event, newValue) => {
                     />
                   </Button>
                 </Box>
+                <Box sx={{ mt: 4 }}>
                  <Typography variant="contained" color="text.secondary" gutterBottom>
                     Images not working? Try these sample images. (Due to Railway's RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
                   </Typography>
@@ -264,6 +267,7 @@ const handleTabChange = (event, newValue) => {
                     </Box>
                   ))}
                 </Box>
+              </Box>
 
               </CardContent>
             </Card>
