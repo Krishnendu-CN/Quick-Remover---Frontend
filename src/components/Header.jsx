@@ -31,7 +31,7 @@ export default function Header() {
         </Box>
 
         {/* Auth buttons */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+       {/* <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
           {!token ? (
             <>
               <Button component={Link} to="/sign" color="inherit">
@@ -56,7 +56,7 @@ export default function Header() {
               </Button>
             </>
           )}
-        </Box>
+        </Box>*/}
 
         {/* Mobile Menu Button */}
         <IconButton sx={{ display: { xs: "flex", md: "none" }, color: "#333" }}>
