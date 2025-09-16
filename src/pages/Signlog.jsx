@@ -64,7 +64,7 @@ const AuthForm = ({ onLogin }) => {
     if (!validateForm(true)) return;
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/signup", {
+      const response = await axios.post("https://quick-remover-backend-production.up.railway.app/signup", {
         username: formData.username,
         email: formData.email,
         password: formData.password
@@ -87,7 +87,7 @@ const AuthForm = ({ onLogin }) => {
       const formDataToSend = new FormData();
       formDataToSend.append("username", formData.email);
       formDataToSend.append("password", formData.password);
-      const response = await axios.post("http://localhost:8000/login", formDataToSend, {
+      const response = await axios.post("https://quick-remover-backend-production.up.railway.app/login", formDataToSend, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" }
       });
       localStorage.setItem("token", response.data.access_token);
@@ -208,7 +208,7 @@ export default function Signlog() {
 
   const fetchUserInfo = async (token) => {
     try {
-      const response = await axios.get("http://localhost:8000/users/me", {
+      const response = await axios.get("https://quick-remover-backend-production.up.railway.app/users/me", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(response.data);

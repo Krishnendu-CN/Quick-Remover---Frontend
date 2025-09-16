@@ -117,7 +117,7 @@ export default function App() {
     formData.append("image", file);
 
     try {
-      const res = await axios.post("http://localhost:8000/remove-bg", formData, {
+      const res = await axios.post("https://quick-remover-backend-production.up.railway.app/remove-bg", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         responseType: "blob",
       });
@@ -184,7 +184,7 @@ export default function App() {
         formData.append("bg_color", imageState.bgColor);
       }
 
-      const res = await axios.post("http://localhost:8000/save-edited", formData, {
+      const res = await axios.post("https://quick-remover-backend-production.up.railway.app/save-edited", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         responseType: "blob",
       });

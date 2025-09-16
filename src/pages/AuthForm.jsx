@@ -33,7 +33,7 @@ export default function AuthForm() {
       body.append("username", formData.email);
       body.append("password", formData.password);
 
-      const res = await axios.post("http://localhost:8000/login", body, {
+      const res = await axios.post("https://quick-remover-backend-production.up.railway.app/login", body, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
 
@@ -49,7 +49,7 @@ export default function AuthForm() {
   const handleSignup = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8000/signup", {
+      const res = await axios.post("https://quick-remover-backend-production.up.railway.app/signup", {
         username: formData.username,
         email: formData.email,
         password: formData.password,
