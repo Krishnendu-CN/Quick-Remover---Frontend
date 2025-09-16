@@ -23,13 +23,48 @@ export default function Home() {
   const [tabValue, setTabValue] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [selectedDefault, setSelectedDefault] = useState(null);
 
-  const handleFile = (file) => {
-    if (file) {
-      const previewUrl = URL.createObjectURL(file);
-      navigate("/upload", { state: { file, preview: previewUrl } });
-    }
-  };
+
+  const handleFile = (fileObj) => {
+  if (!fileObj) return;
+
+  let file;
+  let preview;
+
+  if (fileObj instanceof File) {
+    // User-uploaded file
+    file = fileObj;
+    preview = URL.createObjectURL(fileObj);
+  } else if (fileObj.file) {
+    // Default image converted to File
+    file = fileObj.file;
+    preview = fileObj.preview;
+  } else {
+    console.error("Invalid file object", fileObj);
+    return;
+  }
+
+  navigate("/upload", { state: { file, preview } });
+};
+
+
+  const handleDefaultImageClick = async (img) => {
+  try {
+    setSelectedDefault(img.src);
+
+    // Convert default image URL to File
+    const response = await fetch(img.src);
+    const blob = await response.blob();
+    const file = new File([blob], img.label + ".png", { type: blob.type });
+
+    // Call handleFile with proper object
+    handleFile({ file, preview: URL.createObjectURL(file) });
+  } catch (err) {
+    console.error("Error loading default image:", err);
+  }
+};
+
 
   const handleFileChange = (e) => handleFile(e.target.files[0]);
   const handleDrop = (e) => {
@@ -93,6 +128,11 @@ const handleTabChange = (event, newValue) => {
       title: "People"
     }
   ];
+  const defaultImages = [
+  { src: "../demo-1.jpg", label: "Animals" },
+  { src: "../demo-2.png", label: "Products" }
+];
+
 
   return (
     <>
@@ -197,6 +237,34 @@ const handleTabChange = (event, newValue) => {
                     />
                   </Button>
                 </Box>
+                 <Typography variant="h6" color="text.secondary" gutterBottom>
+                    Images not working? Try these sample images. (Due to Railway's RAM limitations, we are using NumPy instead of RemBG, which may not work properly for background removal.)
+                  </Typography>
+
+                <Box sx={{ mt: 4, display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
+                  {defaultImages.map((img, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        border: selectedDefault === img.src ? "2px solid #f9a825" : "2px solid transparent",
+                        borderRadius: 2,
+                        overflow: "hidden",
+                        cursor: "pointer",
+                        "&:hover": { borderColor: "primary.main" },
+                        transition: "border 0.2s",
+                      }}
+                      onClick={() => handleDefaultImageClick(img)}
+                    >
+                      <Box
+                        component="img"
+                        src={img.src}
+                        alt={img.label}
+                        sx={{ width: 100, height: 100, objectFit: "cover" }}
+                      />
+                    </Box>
+                  ))}
+                </Box>
+
               </CardContent>
             </Card>
           </Box>
