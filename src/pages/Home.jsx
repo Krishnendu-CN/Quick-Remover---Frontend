@@ -124,13 +124,13 @@ const handleTabChange = (event, newValue) => {
     },
     {
       before: "../person-1.png",
-      after: "../animal-1.png",
+      after: "../person-2.png",
       title: "People"
     }
   ];
   const defaultImages = [
   { src: "../person-1.png", label: "Animals" },
-  { src: "../person-2.png", label: "Products" }
+  { src: "../animal-1.png", label: "Products" }
 ];
 
 
