@@ -124,7 +124,7 @@ const handleTabChange = (event, newValue) => {
     },
     {
       before: "../person-1.png",
-      after: "../person-2.png",
+      after: "../animal-1.png",
       title: "People"
     }
   ];
