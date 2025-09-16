@@ -241,7 +241,7 @@ const handleTabChange = (event, newValue) => {
                 </Box>
                 <Box sx={{ mt: 4 }}>
                  <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '16px' }} >
-                    <strong>Images not working? Try these sample images.</strong> (Due to Railway's RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
+                    <strong>Images not working? Try these sample images.</strong> (Due to  <strong>Railway's</strong> RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
                   </Typography>
 
                 <Box sx={{ mt: 4, display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
