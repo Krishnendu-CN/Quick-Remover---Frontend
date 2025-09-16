@@ -238,7 +238,7 @@ const handleTabChange = (event, newValue) => {
                   </Button>
                 </Box>
                  <Typography variant="contained" color="text.secondary" gutterBottom>
-                    Images not working? Try these sample images. (Due to Railway's RAM limitations, we are using NumPy instead of RemBG, which may not work properly as expected.)
+                    Images not working? Try these sample images. (Due to Railway's RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
                   </Typography>
 
                 <Box sx={{ mt: 4, display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
