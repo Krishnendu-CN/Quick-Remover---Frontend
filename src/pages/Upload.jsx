@@ -322,14 +322,7 @@ export default function App() {
                   sx={{ borderRadius: 2, mt: 2, maxHeight: 400, objectFit: 'contain', mx: 'auto' }}
                 />
                 <Box sx={{ display: 'flex', gap: 2, mt: 2, flexWrap: 'wrap' }}>
-                  <Button
-                    variant="outlined"
-                    component="label"
-                    fullWidth
-                  >
-                    Change Image
-                    
-                  </Button>
+                  
                   <Button
                     variant="contained"
                     color="primary"
