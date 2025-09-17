@@ -304,7 +304,7 @@ export default function App() {
                   
                 </Button>
                 <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '14px',p:2 }} >
-                    <strong>Max File Size : 300kb</strong> 
+                    <strong>Max File Size : 600kb</strong> 
                   </Typography>
                   <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontSize: '16px' }} >
                     (Due to  <strong>Render's</strong> RAM limitations, we are using NumPy,OpenCV instead of RemBG, which may not work properly as expected.)
